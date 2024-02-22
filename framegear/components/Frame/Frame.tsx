@@ -1,5 +1,6 @@
 import { postFrame } from '@/utils/postFrame';
 import { frameResultsAtom } from '@/utils/store';
+import { ExternalLinkIcon, RocketIcon, TokensIcon } from '@radix-ui/react-icons';
 import { useAtom } from 'jotai';
 import { PropsWithChildren, useCallback, useMemo } from 'react';
 
@@ -119,14 +120,26 @@ function FrameButton({
     }
     // TODO: implement other actions
   }, [button, setResults]);
+  const buttonIcon = useMemo(() => {
+    switch (button?.action) {
+      case 'link':
+        return <ExternalLinkIcon />;
+      case 'post_redirect':
+        return <RocketIcon />;
+      case 'mint':
+        return <TokensIcon />;
+      default:
+        return null;
+    }
+  }, [button?.action]);
   return (
     <button
-      className="border-button w-[45%] grow rounded-lg border bg-white p-2 text-black"
+      className="border-button flex w-[45%] grow items-center justify-center gap-1 rounded-lg border bg-white p-2 text-black"
       type="button"
       onClick={handleClick}
       disabled={button?.action !== 'post'}
     >
-      <span>{children}</span>
+      <span>{children}</span> {buttonIcon}
     </button>
   );
 }

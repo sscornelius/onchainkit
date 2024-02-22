@@ -1,5 +1,5 @@
 import { APP_NAME } from '@/utils/constants';
-import { ArrowTopRightIcon } from '@radix-ui/react-icons';
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
 export function Header() {
@@ -31,7 +31,7 @@ function Banner() {
         className="bg-link-button flex items-center gap-1 rounded-full px-4 py-2"
         href="https://docs.farcaster.xyz/reference/frames/spec"
       >
-        <span>Farcaster Frames specs</span> <ArrowTopRightIcon />
+        <span>Farcaster Frames specs</span> <ExternalLinkIcon />
       </Link>
     </div>
   );
