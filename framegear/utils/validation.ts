@@ -14,7 +14,7 @@ export const vNextSchema = yup.object({
         .optional()
         .test(
           `has-button-${index - 1}`,
-          `Button index values must be in sequence, starting at 1. Failed on index: ${2}`,
+          `Button index values must be in sequence, starting at 1. Missing index: ${index - 1}`,
           (value, ctx) => {
             if (value) {
               // we only care whether or not `prevButton` is undefined
@@ -36,7 +36,7 @@ export const vNextSchema = yup.object({
         .optional()
         .matches(
           /^post$|^post_redirect$|^mint$|^link$/,
-          `button action must be "post" or "post_url". Failed on index: ${index}`,
+          `button action must be "post," "post_url," "mint," or "link."`,
         ),
     }),
     {},
