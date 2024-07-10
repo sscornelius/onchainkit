@@ -4,8 +4,8 @@ import type {
   ImgHTMLAttributes,
   ReactNode,
   SetStateAction,
-} from 'react';
-import type { Address, Chain } from 'viem';
+} from "react";
+import type { Address, Chain } from "viem";
 
 /**
  * Note: exported as public Type
@@ -109,6 +109,7 @@ export type GetAvatarReturnType = string | null;
  */
 export type GetName = {
   address: Address;
+  chainId?: number;
 };
 
 /**
@@ -141,6 +142,7 @@ export type IdentityReact = {
  */
 export type NameReact = {
   address?: Address | null; // Ethereum address to be displayed.
+  chain?: Chain;
   children?: ReactNode; // Optional attestation by passing Badge component as its children
   className?: string; // Optional className override for top span element.
 } & HTMLAttributes<HTMLSpanElement>; // Optional additional span attributes to apply to the name.
