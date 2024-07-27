@@ -4,10 +4,7 @@ import { useName } from '../../identity/hooks/useName';
 import { Spinner } from '../../internal/components/Spinner';
 import { baseNameSvg } from '../../internal/svg/baseNameSvg';
 import { cn, pressable, text } from '../../styles/theme';
-
-type WalletDropdownBaseNameReact = {
-  className?: string;
-};
+import { WalletDropdownBaseNameReact } from '../types';
 
 export function WalletDropdownBaseName({
   className,

@@ -10,7 +10,7 @@ import {
   WalletDropdownLink,
   WalletDropdownBaseName,
   WalletDropdownDisconnect,
-} from '@coinbase/onchainkit/wallet';
+} from '../src/wallet';
 import {
   Address,
   Avatar,
@@ -18,7 +18,7 @@ import {
   Badge,
   Identity,
   EthBalance,
-} from '@coinbase/onchainkit/identity';
+} from '../src/identity';
 import { color } from '@coinbase/onchainkit/theme';
 import AppWithRK from '../../components/AppWithRK';
 import WalletComponents from '../../components/WalletComponents';
@@ -34,6 +34,7 @@ import { // [!code focus]
   ConnectWallet, // [!code focus]
   Wallet, // [!code focus]
   WalletDropdown, // [!code focus]
+  WalletDropdownBaseName, // [!code focus]
   WalletDropdownLink, // [!code focus]
   WalletDropdownDisconnect, // [!code focus]
 } from '@coinbase/onchainkit/wallet'; // [!code focus]
@@ -123,6 +124,7 @@ You can override component styles using `className`.
       <Address />
       <EthBalance />
     </Identity>
+    <WalletDropdownBaseName /> 
     <WalletDropdownLink 
       className='hover:bg-blue-200' 
       icon="wallet" 
@@ -150,6 +152,7 @@ You can override component styles using `className`.
         <Address className={color.foregroundMuted} />
         <EthBalance />
       </Identity>
+      <WalletDropdownBaseName /> 
       <WalletDropdownLink 
         className='hover:bg-blue-200' 
         icon="wallet" 
@@ -220,6 +223,7 @@ OnchainKit leverages [RainbowKit](https://www.rainbowkit.com/) to offer this fea
       <Address />
       <EthBalance />
     </Identity>
+    <WalletDropdownBaseName /> 
     <WalletDropdownLink 
       icon="wallet" 
       href="https://wallet.coinbase.com"
@@ -316,6 +320,7 @@ export default OnchainProviders;
           <Address className={color.foregroundMuted} />
           <EthBalance />
         </Identity>
+        <WalletDropdownBaseName /> 
         <WalletDropdownLink 
           icon="wallet" 
           href="https://wallet.coinbase.com"
@@ -336,6 +341,7 @@ The components are designed to work together hierarchically. For each component,
 - `<ConnectWallet />` - Handles the wallet connection process. Place child components inside to customize the connect button appearance.
 - `<WalletDropdown />` - Contains additional wallet information and options. Place inside the `<Wallet />` component.
 - `<Identity />` - Displays user identity information. Place inside `<WalletDropdown />` for a complete profile view.
+- `<WalletDropdownBaseName />` - Displays the user's base name within the dropdown.
 - `<WalletDropdownLink />` - Creates a custom link within the dropdown. Use the `icon` prop to add an icon, and `href` to specify the destination.
 - `<WalletDropdownDisconnect />` - Provides a disconnect option within the dropdown.
 
@@ -354,5 +360,6 @@ The Wallet component automatically handles the wallet connection state and updat
 - [`WalletReact`](/wallet/types#walletreact)
 - [`ConnectWalletReact`](/wallet/types#connectwalletreact)
 - [`WalletDropdownReact`](/wallet/types#walletdropdownreact)
+- [`WalletDropdownBaseNameReact`](/wallet/types#walletdropdownbasenamereact)
 - [`WalletDropdownDisconnectReact`](/wallet/types#walletdropdowndisconnectreact)
 - [`WalletDropdownLinkReact`](/wallet/types#walletdropdownlinkreact)
