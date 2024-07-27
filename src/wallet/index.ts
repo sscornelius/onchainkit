@@ -4,7 +4,6 @@ export { Wallet } from './components/Wallet';
 export { WalletDropdown } from './components/WalletDropdown';
 export { WalletDropdownDisconnect } from './components/WalletDropdownDisconnect';
 export { WalletDropdownLink } from './components/WalletDropdownLink';
-export { WalletDropdownBaseName } from './components/WalletDropdownBaseName';
 export { isValidAAEntrypoint } from './utils/isValidAAEntrypoint';
 export { isWalletACoinbaseSmartWallet } from './utils/isWalletACoinbaseSmartWallet';
 export type {
