@@ -3,6 +3,7 @@ import { useName } from '../../identity/hooks/useName';
 import { Spinner } from '../../internal/components/Spinner';
 import { baseNameSvg } from '../../internal/svg/baseNameSvg';
 import { cn, pressable, text } from '../../styles/theme';
+import { useAccount } from 'wagmi'
 
 type WalletDropdownBaseNameReact = {
   className?: string;
@@ -11,13 +12,16 @@ type WalletDropdownBaseNameReact = {
 export function WalletDropdownBaseName({
   className,
 }: WalletDropdownBaseNameReact) {
+    const account = useAccount()
+    
   const { data: baseName, isLoading } = useName({
-    address: '0x4bEf0221d6F7Dd0C969fe46a4e9b339a84F52FDF',
+    address: account.address as `0x${string}`,
     chain: base,
   });
 
   const hasBaseUserName = !!baseName;
-
+  console.log('baseName', baseName);
+  console.log('hasBaseUserName', hasBaseUserName);
   const title = hasBaseUserName ? 'Go to profile' : 'Claim a Basename';
   const href = hasBaseUserName
     ? `https://www.base.org/name/${baseName}`
