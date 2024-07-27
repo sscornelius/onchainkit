@@ -56,5 +56,3 @@ export function WalletDropdownBaseName({
     </a>
   );
 }
-
-export default WalletDropdownBaseName;
