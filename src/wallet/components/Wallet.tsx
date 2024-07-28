@@ -4,7 +4,7 @@ import { ConnectWallet } from './ConnectWallet';
 import { WalletDropdown } from './WalletDropdown';
 import { WalletProvider, useWalletContext } from './WalletProvider';
 
-function WalletContent({ children }: WalletReact) {
+const WalletContent = ({ children }: WalletReact) => {
   const { isOpen, setIsOpen } = useWalletContext();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -24,9 +24,7 @@ function WalletContent({ children }: WalletReact) {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen, setIsOpen]);
 
   return (
@@ -35,12 +33,12 @@ function WalletContent({ children }: WalletReact) {
       {isOpen && dropdown}
     </div>
   );
-}
+};
 
-export function Wallet({ children }: WalletReact) {
+export const Wallet = ({ children }: WalletReact) => {
   return (
     <WalletProvider>
       <WalletContent>{children}</WalletContent>
     </WalletProvider>
   );
-}
+};
