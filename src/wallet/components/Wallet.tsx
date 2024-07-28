@@ -1,4 +1,4 @@
-import { Children, useMemo, useRef, useEffect } from 'react';
+import { Children, useEffect, useMemo, useRef } from 'react';
 import type { WalletReact } from '../types';
 import { ConnectWallet } from './ConnectWallet';
 import { WalletDropdown } from './WalletDropdown';
@@ -18,7 +18,11 @@ const WalletContent = ({ children }: WalletReact) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node) && isOpen) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node) &&
+        isOpen
+      ) {
         setIsOpen(false);
       }
     };
